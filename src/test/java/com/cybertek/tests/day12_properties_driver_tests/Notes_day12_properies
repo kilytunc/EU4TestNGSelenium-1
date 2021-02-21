@@ -1,0 +1,38 @@
+
+Starting Framework
+Properties File
+Singleton Design pattern
+new WebDriverFactory
+
+
+What is Automation Framework ?
+Automation framework is integrated system, organozation of packages, files, classes,
+tools in a way that it makes writing and maintaning automated tests easy. Good framework must be easy to maintain,
+easy to use, easy to scale, reasuable, report.
+======================================
+Properties file
+
+1.Right click on the name of the project
+2.New -> File
+3.Enter name: configuration.properties
+4.OK
+
+properties file works like a control center, we manage our browser, urls,
+database and couple of user information from those file and it changes values evertwhere that we used configuration input.
+
+It has key and value structure.
+
+Single Responsibility principle(this class only do one job)
+
+Create a properties reader file
+1.Right click to utilities package
+2.New -> class
+3.Enter name: ConfigurationReader
+4.OK
+
+To read, reach value in configuration.properties file, I need ConfigurationReader class which allow us to read properties file type.
+
+Singleton design let us use the same version of an object across to whole program.
+
+//when there is no keyName as browser it returns null
+//when there is more than one KeyName it returns last one

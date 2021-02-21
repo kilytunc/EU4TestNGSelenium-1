@@ -1,0 +1,49 @@
+***** 11/12/2020
+
+//WebElement --> Interface that represent elements on the webpage
+//findElement --> method used to find element on page.
+Example:
+ WebElement retrievePasswordButton = driver.findElement(By.id("form_submit"));
+ WebElement emailInputBox = driver.findElement(By.name("email"));
+ String currentUrl = driver.getCurrentUrl();
+ retrievePasswordButton.click();
+
+*****
+.sendKeys(String); ---> to write a String in textBox
+Example:
+WebElement emailInputBox = driver.findElement(By.name("email"));
+emailInputBox.sendKeys(expectedEmail);
+
+*****
+//1. getText() --> it will work %99 and it will return string
+//2. getAttribute("value") --> second way of getting text
+especially input boxes
+Example:
+String actualEmail = emailInputBox.getAttribute("value");
+System.out.println(actualConfirmationMessage.getText());
+
+*****
+// .click() ---> to click a button
+Example:
+WebElement retrievePasswordButton = driver.findElement(By.id("form_submit"));
+retrievePasswordButton.click();
+
+*****
+driver.quit(); ----> to close all tabs
+driver.close(); ---> to close current tab
+
+*****
+Once you get the test case, what do you do first
+1.Read and try to understand
+2.Manually execute the test case
+-functionality should not be broken
+-it should be automate with selenium( not having color design etc)
+-should pass manually first
+
+*****
+How to read an error message ?
+1.Find exception keyword and read the error message
+2.go to end of the error
+3.click the blue link to see which line caused an error
+
+*****

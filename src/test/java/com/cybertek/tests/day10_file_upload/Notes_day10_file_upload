@@ -1,0 +1,55 @@
+FILE UPLOAD
+
+How to upload file manually ?
+1.Click on the button(choose file) which opens file explorer using which we choose file
+2.Click another button(upload) which completes the uploading
+
+*-*-*-*
+
+How to get the Path of the file ?
+
+MAC
+1.Right click on the file
+2.Hold option key
+3.Select option Copy "file.txt" as Pathname
+
+WINDOWS - chooseFile.sendKeys("C:\\Users\\ZdN\\Desktop\\file.txt");
+1.Hold Shift button
+2.Right click on file
+3.Copy as Path
+
+*-*-*-*
+
+Create resources
+1.Right click on test (NOT TESTS)
+2.New->Directory
+3.Choose resources or type:resources
+4.OK
+
+*-*-*-*
+
+Create a test file
+1.Right click on resources
+2.New->File
+3.name: testfile.txt
+
+-In order to create dynamic path of the files that we are using in our tests cases,
+we have to locate our project folder dynamically.
+
+-This method will find where your project is located in your computer.
+String projectPath = System.getProperty("user.dir");
+
+-Then we will add the relative file path which is after project location;
+String filePath = "src/test/resources/textfile.txt";
+
+-And finally we will concat those two and give as a absolute path to sendKeys method.
+String fullPath = projectPath+"/"+filePath;
+
+*-*-*-*
+
+FILE DOWNLOAD
+
+Using selenium we cannot verify the content of the downloaded files. we can got to some websites,
+click on the links to download files using selenium.
+But we cannot verify the content. Using java+other libraries/dependencies
+we can verify if the file exists and verify the content.

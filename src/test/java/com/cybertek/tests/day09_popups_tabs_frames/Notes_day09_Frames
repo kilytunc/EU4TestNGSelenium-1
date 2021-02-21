@@ -1,0 +1,35 @@
+Frames
+NoSuchElementException
+1.locator might be wrong(dynamic or not correct)
+2.not enough wait time
+3.frame or iframe
+
+In html we can have one html page inside to another.
+This is made possible by tag <iframe> or <frame>.
+using frames we can put html inside the html. when we have page with frames,
+selenium cannot control what is inside the frame.we have to switch iframe first.
+When we switch to iframe it will not see the default page, until we switched back.
+
+-switch-
+1.way---> driver.switchTo().frame("mce_0_ifr"); (with ID or NAME attribute of frame)
+2.way---> driver.switchTo().frame(0); (with INDEX)
+3.way---> driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+(with WebElement)
+
+
+-switch back-
+1.way---> driver.switchTo().defaultContent(); (It switch directly main html up.)
+2.way---> driver.switchTo().parentFrame(); (It switch only one parent up.)
+
+*-*-*
+-We can only switch one at a time, cannot switch to grandchild directly.
+-We cannot switch to siblings, only parent to child
+
+
+
+HTML(Default Content)
+0(index)frame-top(parent frame)
+    0(index) left
+    1(index) middle
+    2(index) right
+1(index)frame-bottom

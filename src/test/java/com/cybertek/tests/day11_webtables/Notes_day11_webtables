@@ -1,0 +1,12 @@
+WebTables
+
+In html tables are represented with <table> tag
+Tables are made of <thead> and <tbody>
+
+<thead> --> this is the table header, here we have table column names
+<tr> table row, indicates one whole row
+<th> --> this tag indicates a cell that is used for table headers
+
+<tbody> this is where the data is
+<tr> table row, indicates one whole row
+<td> --> cell in a table body

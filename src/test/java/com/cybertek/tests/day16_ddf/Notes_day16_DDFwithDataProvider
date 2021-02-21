@@ -1,0 +1,27 @@
+Test code/script ----------------test data
+test data-->excel file,json,xml,csv,database,api
+
+In DDF(Data Driven Framework) we seperate test data and test code.
+we design our test code in a way that it can read the test data
+and execute tests base on it. Our test code will have the test steps. Test input data will be in external sources.
+Our test data will decide how many times a test case runs.
+
+we use apache-poi dependencies to work with office(excel) files.
+
+ExcelUtil
+1.Right click to utilities package
+2.New->Java Class
+3.Name: ExcelUtil
+4.OK
+
+Copy excel file
+1.Go to #jamal-only slack channel
+2.Download vytracktestdata.xlsx file
+3.find your file in your computer(probably in the downloads folder)
+4.Right click copy file
+5.go to intellij
+6.find you resources folder under the test
+7.right click your resources folder
+8.click paste
+9.click ok
+10. you will see the file under resources

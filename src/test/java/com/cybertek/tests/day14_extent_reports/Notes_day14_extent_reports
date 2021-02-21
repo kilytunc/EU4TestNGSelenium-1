@@ -1,0 +1,19 @@
+HTML Reporting
+
+A good bug report must have
+1.Recration steps with expected and actual
+2.Screenshot and exception
+
+when we use testng/junit with selenium, we can use reporting tools such as Allure and ExtentReports.
+ExtentReports
+
+/*
+* open the chrome
+* go to qa1.vytrack
+* login as a sales manager
+* navigate to customers ->contacts
+* click on email mbrackstone9@example.com
+* verify that full name is Mariam Brackstone
+* verify that email is mbrackstone9@example.com
+* verify that phone number is +18982323434
+*/

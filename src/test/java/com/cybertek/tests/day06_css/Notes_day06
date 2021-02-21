@@ -1,0 +1,129 @@
+*****
+CSS
+
+ID (#)
+<button id="disappearing_button">Don't click!</button>
+xpath--> //button[@id='disappearing_button']
+css--> #disappearing_button OR
+css--> button#disappearing_button
+css--> button[onclick='button2()'][name='button2'] (&&)
+(or doesnt implement in css)
+*****
+
+You can use className which has space in xpath locator.
+not with By.ClassName locator
+
+*****
+CLASS (.)
+<a class="nav-link">
+xpath--> //a[@class='nav-link']
+css--> a.nav-link
+
+*****
+MULTIPLE CLASS
+<button class="btn btn-primary">Button 2</button>
+CSS: .btn.btn-primary
+If there is a space in the class attribute value,
+which means there are multiple classes so we have to use .
+(dont) for each class we have
+
+*****
+LOCATING USING ATTRIBUTE and VALUE
+<button onclick="button1()">Button 1</button>
+
+xpath--> //button[@onclick='button1()']
+css--> button[onclick='button1()']
+
+WITHOUT TAG
+xpath--> //*[@onclick='button1()']
+css--> [onclick='button1()']
+
+*****
+BIG DIFFERENCE BETWEEN XPATH and CSS
+-interview Question-
+NOTE:we cannot use text of element to locate using CSS selector.
+
+*****
+DYNAMIC ATTRIBUTES
+-Starting part is static-
+<button id="button_three">Button 3</button>
+xpath--> //button[starts-with(@id,'button_')]
+css--> button[id^='button_']
+
+-Ending part is static-
+<button id="quick_button">Button 4</button>
+xpath: //button[ends-with(@id,'_button')]
+css: button[id$='_button']
+
+NOTE:css endswith is working with chrome, but xpath does not
+
+-Contains-
+<button id="disappearing_button">Don't click!</button>
+xpath --> //button[contains(@id,'ring')]
+css --> button[id*='ring']
+
+-Css-
+^ --> beginning part is static(starts-with)
+$ --> ending part is static(ends-with)
+* --> contains, looks for anypart of the value (contains)
+
+*****
+INDEX IN CSS
+It only works if they have same parent
+
+xpath: //button[2]
+css: button[onclick^='button']:nth-of-type(2)
+
+we don't have index for different parents
+
+*****
+PARENT to CHILD:
+//ul/li/a --> xpath
+ul>li>a --> css
+
+PARENT to DESCENDANT:
+xpath: //ul//a
+css: ul a
+
+NOTE: instead of // we are using SPACE for searching descendant
+NOTE: in xpath child to parent: /../
+      NO FORMULATE FOR CHILD TO PARENT with CSS
+*****
+CSS vs XPATH
+- Css is slightly faster then xpath on IE, other browsers it is negligible.
+- Css is easier to write and read,cleaner syntax
+
+1.css cannot locate element using text
+xpath://*[.="Don't Click"]
+css: NA
+2.css cannot find from matches based on index(different parents)
+xpath:(xPathFormula)[indexNumber]
+css: NA
+3.css cannot locate child to parent
+xpath: //button/../ --> move to parent
+css: NA
+
+xpath can do more than css, but it is little complex to write.
+
+*****
+HIERARCHY OF LOCATORS
+-For All Elements Other Than Links-
+-ID: Always look for id first, they are unique.(dynamic problem)
+-NAME: not always unique, but not repeat thah much(careful about radioButtons)
+-tagName: if it is unique(only one) or first one in the page
+-className: if there is space we should avoid using it, tagname rules applies here too.
+-CSS:partial dynamic,attribute value,more than one class,direct id(even Selenium uses)
+-XPATH: text of element,index,child parent relationship
+-LINKS: go with LinkText or PartialLinkText
+
+*****
+TestNG (Unit Testing Tool)
+Developers write their code and do Unit testing.
+In unit testing smallest block of code is tested.
+Java:TestNg and Junit
+C#  :Nunit
+Python: Pytest
+
+TestNG allows us to run, organize tests,
+It can do assertions and verification,generate reports.
+

@@ -1,0 +1,74 @@
+click
+findElement
+sendKeys
+getText
+getAttribute("value")
+getTitle
+getCurrentUrl
+============================
+How to identify web elements ?
+1.Navigate to website
+2.Open the source(inspect)
+3.Find the unique property for the element
+===================
+driver--> our page,browser
+driver.findElement()-->method used to find weblement on the page
+By is a selenium class for locators.
+===================
+Basic locators
+we have 8 different locators
+
+id
+name
+tagName
+className
+linkText
+PartialLinkText
+xPath (1 class)
+CSS(1 class)
+==================
+first locator
+ID --> it will be always unique and the first locator we are looking for. If there is and id attrivute avaialabe for ewebelement we will check is it dynamic or not.
+If it is NOT changing --static-- we will use it.
+
+How to understand ID value is changing(dynamic) ?
+
+while we inspecting the element, refresh the webpage, if id value are changing we CONNOT use it. refresh couple of times always to make sure.
+========================
+Name
+if we cannot use id, or it is dynamic we look for the name.
+name locator is not dynamic %99.99 time.
+
+name can be duplicate(radio buttons) so be careful.
+========================
+if we cannot find name or id, we look for tagName
+
+<input type="text" name="full_name">
+
+input--> tag here
+rest is attribute and value
+
+Selenium reads the source code from top to bottom.
+if your locators matched with one webelement, selenium stops there.
+
+if there is no id or name, we can use tagName based on two conditions
+1.tag should be used only one time
+2.there are multipe same tags but you want to point the first tag.
+
+we cannot use index when we use tagName locator.
+If there are multiple usage of same tag, we cannot point the second one.
+====================
+className
+another attribute for locating web elements
+
+we will use it later to locate multiple elements in one shot.
+
+when we shouldn't use classname locator ?
+if there is a space in the class attribute value, we CANNOT USE it.
+driver.findElement(By.className(""))
+====================
+linkText
+partialLinkText
+
+linkText --> using full text of link to locate link web element on the webpage
+partialLinkText--> using part of the linkText to locate link web element

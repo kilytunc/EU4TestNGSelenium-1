@@ -1,0 +1,65 @@
+Popups,alerts,Iframes,Windows
+=====================
+Popups,alerts,modal,dialog,overlay --> anything pop ups on the webpage.
+
+How to handle pop ups???
+
+we have 2 different way of handling pop ups, based on their structure:
+
+1.HTML POP UPS
+-If the pop up is from html, we deal with it as if it is another web element.
+
+2.JAVASCRIPT ALERTS
+-Second types of pop up comes from javascript, mostly known as js alerts.
+-We CANNOT right click on those alerts to see html(inspect)
+
+To deal with non html alerts, we have special class from selenium which is Alert
+
+How to point the alert ?
+
+Alert alert = driver.switchTo().alert();
+
+And we have accept, dismiss, sendkeys, getText method for alerts.
+
+If there is no alert on the webpage, and we try to switch,
+NoAlertPresentException: no such alert
+
+
+*****
+
+Set<String> windowHandles = driver.getWindowHandles();
+-It's one of the collection. Just like a list but with two difference:
+1- It doesnt keep duplicate values. Only keeps unique values.
+2- It doesnt keep the order. You can not use index. You can not navigate with index.
+
+*****
+Disable Chrome Notifications
+
+Map<String, Object> prefs = new HashMap<String, Object>();
+prefs.put("profile.default_content_setting_values.notifications", 2);
+ChromeOptions options = new ChromeOptions();
+options.setExperimentalOption("prefs", prefs);
+WebDriver driver = new ChromeDriver(options);
+
+*****
+Tab and Windows
+-In selenium there is no difference between tabs and windows.
+-By default selenium controls one html page.
+-When we open the page first time it points that page only.
+-When we open a new tab/window, it will still be looking at the old window.
+-To do any interaction with the new window we have to switch to new window.
+
+driver.getWindowHandle(); --> this returns some unique code belongs the windows that
+we open with driver.get()
+
+handle--> unique identifier for windows
+driver.getWindowHandle() --> returns the handle of the current windows
+
+driver.getWindowHandles()--> returns the set of the all open windows.
+
+*****
+
+HOW TO HANDLE MORE THEN 2 WINDOWS/TABS in SELENIUM
+If you have more then 2 windows, we need some unique identifier for us like title, url etc.
+Then based on our identifier we will keep switching windows until we find our expected window.
+

@@ -1,0 +1,99 @@
+What is framework ?
+Test automation framework is an environment that we write and execute tests. Test automation framework uses different tools,
+designs in order to efficiently generate, run and report automated tests. In framework we use different packages,
+folders to make them more efficient,scalable,understandable etc.
+
+java--> our framework us written in java lang.
+maven--> build management tool we use for managing our dependencies and plugins, run from terminal
+selenium --> we use for automate the browser
+testng --> used to create tests, run tests, generate reports, building smoke/regression suites, assertions, annotations
+intellij--> ide that we used, where we write our code.
+extent reports --> used to generate html report with steps, metrics, screenshots
+apache poi --> read/write excel files
+git/github --> version control
+jenkins --> to schedule smoke/regression tests,send email to team etc.
+
+***********************
+
+1-Low Maintenance
+    - the less you change means "you have better framework"
+2-Low redundancy
+    - less reputation , less code (exp:TestBase)
+3-Easy to scale
+    - easy to write new test cases
+4-Easy to extend
+    - you need to adapt your framework to new changes
+    - it is easy to add feature your framework
+5-High re-usability
+    -methods
+
+#FeaturesOurFramework
+1-Page Object Model
+    1-pages
+        1-BasePage
+            - Template page object for all pages
+    2-tests
+        1-TestBase
+            - Contains properties and actions common to all tests
+    3-utilities
+        1-Driver
+            - Single WebDriver  (Singleton Concept) object for all tests
+        2-Configuration.Reader
+            - Read properties file
+            - We have one data here. Because It is not for the DDT(Data Driven Testing). This is only if the login or
+            other functions are pre-requirement for your tests.
+        3-BrowserUtils
+            - Browser operations,synchronization, it is not unique the project.
+        4-ExcelUtility
+            - Read, write excel files
+        5-DBUtility
+            - Access database
+
+2-WebDriver Factory
+3-Properties
+4-Utilities
+5-HTML Reporting
+
+
+#XmlRunners
+- To create TestSuit we use XmlRunners
+
+#ExtentReport
+-To report failures we use ExtentReport
+
+#Data Driven Testing
+-We are using Data Driven Framework which a framework where tests executed based on set of data.
+-Framework is designed to read data from external sources like excel to csv files (with ApachePOI dependencies)
+and run tests based on data. In data driven framework we can execute the same test multiple times against different
+sets of data.
+
+#TypesOfTesting
+1-UI --> WebDriver
+2-Backend --> JDBC
+3-API --> REST - Assured
+
+#Jenkins
+    -Code is in git repository
+    -Check out from git
+    -Execute tests on AWS
+    -Generate reports
+    -Email results
+
+ HOW DID WE USE OOP CONCEPT IN OUR FRAMEWORK ?
+
+    Inheritance
+    we use base classes such as test base in our framework. this class contains the properties and methods
+    which are common to all test classes. all test classes extend this testBase class.
+
+    Encapsulation
+    we have a driver class that uses private driver variable and we use the public getter method to access this.
+
+    Abstraction
+    we have and abstract BasePage where we put the logic to common all the page object classes.
+    my page object classes extend the base class. when we create object of the any page object,
+    we can access the method from abstract class.
+
+    Polymorphism
+    we use method overloading in our framework in multiple instances.
+    we have overloaded utilities methods which can take different types of arguments.
+    sometimes we can pass WebElements, or by locators.

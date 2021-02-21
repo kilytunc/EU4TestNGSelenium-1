@@ -1,0 +1,75 @@
+*****
+multiple usage
+//div[@id='content']/div[1]/p
+
+Review
+Locators
+	-> id => Unique, changeable, refresh page
+	-> name => Not unique(Duplicate -> especially Radio Button), Not changable
+	-> tagName
+	-> className
+	-> linkText
+	-> PartialLinkText
+
+	-> xPath
+	-> CSS
+====================================================================================================
+-> Xpath
+it is unique way of finding elements on HTML page. xPath navigates thorough the html and tries to find element based on description we provide.
+--->Absolute Xpath
+stars with single /
+it starts looking for elements from the root of the html page.
+In absolute Xpath we describe all the elements between html and our element in descending order.
+Example:
+/html/body/div/div[2]/div/div/button[3]
+if you have same tag name end you want to point specific element, we can use index which is [indexNumber]
+Note: unlike java, index starts from 1 in html
+Disadvantages of absolute page hierarchy, if developers changes the page, xpath will stop working(very likely)
+---> Relative Xpath
+starts with // and looks element ANYWHERE on the page
+Example:
+//li/a --> find the li element on the page then find its child which has a tag
+//button[@onclick=‘button1()’]  --> find any button element which has onclick attribute and its value is button1()
+
+====================================================================================================
+
+BASIC LOCATORS
+IDdriver.findElement(By.id(“button1”));
+name driver.findElement(By.name(“full_name”));
+tagName driver.findElement(By.tagName(“input”));
+className driver.findElement(By.tagName(“nav-link”));
+linkText driver.findElement(By.linkText(“Example4: Element on page”));
+partialLinkTextdriver.findElement(By.partialLinkText(“Example4”));
+*****
+XPATHAbsolute xPath//html/body/div[1]/div[2]/form/div[2]/inputRelative
+*****
+xPathRELATIVE//........
+Known Att&Value//tagName[@attribute=’value’]
+Known Value Only//tagName[@*=’value’]
+Known Visible Text//tagName[text()=’exact text’]
+//tagName[.=’exact text’]
+//*[text()=’exact text’]
+Known Visible Text (Partial)//tagName[contains(text(),’exact text’)]
+Dynamic Element (Contains)//tagName[contains(@attribute,’value’)]
+Dynamic Element (Startswith)//tagName[startswith(@attribute,’value’)]
+Dynamic Element (Endswith)//tagName[endswith(@attribute,’value’)]
+With Multiple Attributes//tagName[@attribute1=’value1’] [@attribute2=’value2’]
+//tagName[@attribute1=’value1’ and @attribute2=’value2’]
+//tagName[@attribute1=’value1’ or @attribute2=’value2’]
+Relative to Known Element
+//<Known part>/parent::*    -   ..
+//<Known part>/parent::tagName
+//<Known part>/following-sibling::*
+//<Known part>/following-sibling::tagName
+CSS
+IDtagName#idValue#idValueclass
+NametagName.classValue.classValuetagName.btn.btn-primary
+Known Att&ValuetagName[attribute=’value’][attribute=’value’]
+Dynamic Element (Contains)tagName[ attribute*,’value’]
+Dynamic Element (Startswith)tagName[ attribute^,’value’]
+Dynamic Element (Endswith)tagName[ attribute$,’value’]
+If Multiple Results<CSS>:nth-of-type(index)
+Multiple AttributestagName[attribute1=’value1’] [attribute2=’value2’]
+Child Elementtag > tag > tag
+Parent Elementtag tag tag
+Sibling Element<CSS>~tagName

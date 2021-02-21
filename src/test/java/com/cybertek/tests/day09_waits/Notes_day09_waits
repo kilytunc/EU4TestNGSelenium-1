@@ -1,0 +1,105 @@
+WAITS
+
+*****
+Thread.sleep()
+
+-This method is from java, not selenium. It pauses the program based on given millisecond.
+-It waits for the duration given. be careful not to use too long or to less.
+-It is recommended to minimize the use of thread.sleep using too much slows the execution of tests.
+
+*****
+
+*hidden Element----> JVM doesnt complain
+- you can find the element with locator even it doesnt seem on the page.
+*not part of HTML Element----> JVM will complain
+- you cant find the element with locator.it doesnt part of the HTML
+
+*****
+1- Implicitly Wait
+(it is waiting to find Element - findElement())
+
+driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+
+this is wait come from selenium
+1.Amount of time
+2.Unit of time(second,milliseconds,days etc)
+
+*****
+
+HOW FIND ELEMENT METHODS WORK ?
+
+?we provide locator and try to find element to do same actions using findElement method?
+
+-IF element FOUND,
+    it will return WebElement
+-IF element does NOT FOUND
+    a.it will check do we have implicitly wait set ?
+        -it will keep trying to find element up to time we set.
+            1.if it finds within the time, it will return the element.
+            2.if it cannot find up to time we set, it will throw NoSuchElementException
+    b.if there is no implicitly wait set, it will throw NoSuchElementException
+
+-This waits for elements to be found in HTML, It only works when we call findElement
+method.
+
+-Implicitly wait only waits until the element located.
+
+-Implicitly wait is set once, then it issued by rest of the program.
+-If we have many findElement methods, they will all use the same implicitlyWait.
+
+*-*-*-*
+-As long as findElement method finds the WebElement on the html,
+it does NOT care is it intractable,visible,clickable or not. it will return the element.
+-So implicitly wait will not solve our elementNotIntractable problems.
+
+*-*-*-*
+IF ELEMENT IN THE HTML, findElement WILL NOT COMPLAIN.
+
+*****
+
+2- Explicitly wait
+
+-Sometimes we might locate the element but we cannot interact with it within certain time.
+-We have to wait until it is visible, clickable, enabled,has certain text or disappear.
+
+*When we have to wait for these cases, we will use explicit wait.
+
+-Two step to use explicit wait;
+    1- Create the object pass parameters
+
+        WebDriverWait wait = new WebDriverWait(driver,10);
+
+        WebDriverWait --> class used to explicit waits
+        it takes 2 parameters driver, time in seconds
+
+    2- Use object to wait until specific conditions for webelement or case.
+
+        wait.until(ExpectedConditions.elementToBeClickable(inputBox));
+
+        ExpectedConditions-->contains conditions for wait that we can wait using WebDriverWait
+
+-Depending on what condition we are using, we can pass webelement,bylocator or text to ExpectedConditions.
+
+- Explicit wait waits for the condition to complete, once the condition is met,
+it will stop waiting(dynamic) .
+- If the condition is not met and the time runs out we got TimeoutException
+
+*****
+
+COMPARISON OF 3 WAITS
+
+*Thread.sleep
+-call every time you need
+-wait for whole duration,not dynamic(static)
+-not selenium wait
+
+*IMPLICITLY WAIT
+-call it once,(set of driver)
+-waits while trying to findElement
+-wait until element found or time runs out(dynamic)
+-applies for all findElement methods
+
+*EXPLICITLY WAIT
+-call every time you need it
+-wait until condition is met or time runs out(dynamic)
+-waits for different conditions(intractable,visible,invisible,text,clickable etc)

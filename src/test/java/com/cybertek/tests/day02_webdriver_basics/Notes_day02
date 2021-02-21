@@ -1,0 +1,27 @@
+        /*****
+driver.get(url)--> navigates to website
+driver.navigate().to(url)-->navigates to website
+
+driver.navigate().back()--> goes back previous website
+driver.navigate().forward()-->goes forward after goes back
+driver.navigate().refresh()-->refresh the page
+
+driver.close()-->close the current tab
+driver.quit()-->closes all tabs and everything
+
+driver.getTitle()-->gets the current title from browser
+driver.getCurrentUrl --> get the url from browser
+driver.getPageSource()--> gets the source code of the page
+        *
+        * */
+        
+        
+        /*
+Java --> it is programming language in which we write our tests
+IntelliJ--> we use it to write and execute our code/tests (just like Eclipse)
+Library/Dependency --> set of prewritten classes,methods which we can add to our code and use
+Selenium --> automation tool/library, just another depedency
+Maven --> build management tool, we use it to manage depedencies, for example we added selenium and java faker libraries
+pom.xml --> brain of maven, we put depedendices and settings here.
+
+*/

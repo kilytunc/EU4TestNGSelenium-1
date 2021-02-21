@@ -1,0 +1,82 @@
+*****
+Install TestNG
+
+1.Go to https://mvnrepository.com/artifact/org.testng/testng/7.1.0
+2.get TestNG dependency
+
+<dependency>
+<groupId>org.testng</groupId>
+<artifactId>testng</artifactId>
+<version>7.1.0</version>
+<scope>test</scope>
+</dependency>
+
+3.Reload your maven project
+
+*****
+@Test --> this is an annotation,
+it means the method after this @Test is TestNG test method. we can RUN testng test methods.
+
+-we can have multiple @Test s in one class.
+-if we want to run specific test, right click to test name and run or click run button next to it.
+-To run all the tests inside the one class, right click run button next to class name or
+click empty space inside the class and run.
+
+@BeforeMethod --> runs once before each method with @Test annotations
+
+@AfterMethod --> runs once after each of with @Test annotations
+
+How to ignore some @Test to run ?
+@Ignore --> we can put on top of the @Test that we want to ignore
+OR
+we can comment out the @Test annotation
+
+@BeforeClass --> runs only once before everything in the class
+
+@AfterClass --> runs only once after everything in the class
+
+<BeforeClass>
+<BeforeMethod>test1<afterMethod>
+<BeforeMethod>test2<afterMethod>
+<BeforeMethod>test3<afterMethod>
+<AfterClass>
+
+*****
+
+TestNG Execution Rules (Extra Info - Not usable work environment)
+- It will your testCase'name and based on A-z and 0 to 9 it will execute them.
+- If you want to change priority;
+@Test(priority = 1)
+@Test(priority = 2)
+@Test(priority = 3) ---> You can prioritize them with this structure.
+
+*****
+
+ASSERTIONS
+Assert --> this is the class in testNg, it has methods used to do assertions like when we compare values.
+-Assert.assertEquals("title","title");
+s
+in testng, if assertion fails, rest of the method will NOT execute, it will be ignored/skipped.
+
+If your code fail in one @Test annotation, it will not effect other @Test s, each of them working independently.
+
+Note: whether your testcase fail or not, your before and after method will executed ALWAYS.
+So even if you code fails, you can quit from driver, close browser.
+
+*****
+4 types of assertion
+
+Assert.assertEquals(actual,expected)--> it checks two value same or not
+
+Assert.assertTrue(condition) --> it checks whether condition return true or not
+
+Assert.assertFalse(condition) --> it verifies condition return false or not
+
+Assert.assertNotEquals(actual,expected) --> verifies that two vvalues are NOT equal to each other
+
+we can add message to all of our assertions to see what we are checking
+
+Assert.assertTrue(condition,message);
+Assert.assertEquals(actual,expected,message);
+
+=========================================
